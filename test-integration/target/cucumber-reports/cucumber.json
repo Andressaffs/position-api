@@ -1,0 +1,107 @@
+[
+  {
+    "line": 4,
+    "elements": [
+      {
+        "start_timestamp": "2024-01-26T04:41:50.531Z",
+        "line": 7,
+        "name": "Pet localizado com sucesso",
+        "description": "",
+        "id": "buscar-dados-da-localizacao-de-um-pet-atraves-de-seu-dispositivo-rastreador;pet-localizado-com-sucesso",
+        "type": "scenario",
+        "keyword": "Cenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 939087600,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "que eu receba as informacoes do pet pelo seu dispositivo",
+            "match": {
+              "location": "br.com.challenge.steps.LocalizarPetSteps.que_eu_receba_as_informacoes_do_pet_pelo_seu_dispositivo()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "a API deve retornar a posição completa do pet",
+            "match": {
+              "location": "br.com.challenge.steps.LocalizarPetSteps.a_API_deve_retornar_a_posição_completa_do_pet()"
+            },
+            "keyword": "Entao "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LocalizarPet"
+          },
+          {
+            "name": "@Sucesso"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2024-01-26T04:41:51.526Z",
+        "line": 12,
+        "name": "Que eu nao consiga a localizacao do pet",
+        "description": "",
+        "id": "buscar-dados-da-localizacao-de-um-pet-atraves-de-seu-dispositivo-rastreador;que-eu-nao-consiga-a-localizacao-do-pet",
+        "type": "scenario",
+        "keyword": "Cenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 7531000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "que eu receba as informacoes do pet",
+            "match": {
+              "location": "br.com.challenge.steps.LocalizarPetSteps.que_eu_receba_as_informacoes_do_pet()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 999700,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "a API nao consiga retornar a localizacao",
+            "match": {
+              "location": "br.com.challenge.steps.LocalizarPetSteps.a_API_nao_consiga_retornar_a_localizacao()"
+            },
+            "keyword": "Entao "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LocalizarPet"
+          },
+          {
+            "name": "@Falha"
+          }
+        ]
+      }
+    ],
+    "name": "Buscar dados da localizacao de um pet atraves de seu dispositivo rastreador",
+    "description": "",
+    "id": "buscar-dados-da-localizacao-de-um-pet-atraves-de-seu-dispositivo-rastreador",
+    "keyword": "Funcionalidade",
+    "uri": "file:src/test/resources/features/LocalizarPet.feature",
+    "tags": [
+      {
+        "name": "@LocalizarPet",
+        "type": "Tag",
+        "location": {
+          "line": 3,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
