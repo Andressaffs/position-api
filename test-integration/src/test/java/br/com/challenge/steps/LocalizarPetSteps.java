@@ -1,29 +1,27 @@
 package br.com.challenge.steps;
 
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Assert;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.annotation.PostConstruct;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 
 public class LocalizarPetSteps {
+
+    @Value("${endpoint}")
+    private String endpoint;
+
 
     private HttpClient httpClient;
     private String payload;
@@ -39,7 +37,7 @@ public class LocalizarPetSteps {
     //Falha
     @Dado("que eu receba as informacoes do pet")
     public void que_eu_receba_as_informacoes_do_pet() throws IOException {
-        HttpPost request = new HttpPost("http://localhost:8080/localizar-pet");
+        HttpPost request = new HttpPost(endpoint);
         request.setEntity(new StringEntity("\"id\": null"));
         response = httpClient.execute(request);
     }
@@ -54,7 +52,7 @@ public class LocalizarPetSteps {
     //Sucesso
     @Dado("que eu receba as informacoes do pet pelo seu dispositivo")
     public void que_eu_receba_as_informacoes_do_pet_pelo_seu_dispositivo() throws IOException {
-        HttpPost request = new HttpPost("http://localhost:8080/localizar-pet");
+        HttpPost request = new HttpPost(endpoint);
         request.setHeader("Content-Type", "application/json");
         request.setEntity(new StringEntity(payload));
         response = httpClient.execute(request);

@@ -26,9 +26,6 @@ public class LocalizadorServiceTest {
     @Mock
     private RestTemplate restTemplate;
 
-    @Mock
-    private LocalizarPetLogger logger; // Mock para o logger
-
     @InjectMocks
     private LocalizadorService service;
 
