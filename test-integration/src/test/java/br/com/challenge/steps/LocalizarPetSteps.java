@@ -9,7 +9,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Assert;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -18,9 +17,6 @@ import java.nio.file.Paths;
 
 
 public class LocalizarPetSteps {
-
-    @Value("${endpoint}")
-    private String endpoint;
 
 
     private HttpClient httpClient;
@@ -37,7 +33,7 @@ public class LocalizarPetSteps {
     //Falha
     @Dado("que eu receba as informacoes do pet")
     public void que_eu_receba_as_informacoes_do_pet() throws IOException {
-        HttpPost request = new HttpPost(endpoint);
+        HttpPost request = new HttpPost("http://localhost:8080/localizar-pet");
         request.setEntity(new StringEntity("\"id\": null"));
         response = httpClient.execute(request);
     }
@@ -52,7 +48,7 @@ public class LocalizarPetSteps {
     //Sucesso
     @Dado("que eu receba as informacoes do pet pelo seu dispositivo")
     public void que_eu_receba_as_informacoes_do_pet_pelo_seu_dispositivo() throws IOException {
-        HttpPost request = new HttpPost(endpoint);
+        HttpPost request = new HttpPost("http://localhost:8080/localizar-pet");
         request.setHeader("Content-Type", "application/json");
         request.setEntity(new StringEntity(payload));
         response = httpClient.execute(request);
